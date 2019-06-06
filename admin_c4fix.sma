@@ -3,7 +3,7 @@
 
 public plugin_init()
 {
-	register_plugin("C4 Sadece Adminlerde", "1.1", "seypa")
+	register_plugin("C4 Sadece Adminlerde", "1.0", "seypa")
 	RegisterHookChain(RG_CSGameRules_GiveC4, "c4_yakala")
 }
 

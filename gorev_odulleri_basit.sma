@@ -39,3 +39,5 @@ public yeni_tur()
 	}
 		
 }
+
+/////edit

@@ -4,9 +4,9 @@
 #include <amxmisc>
 #include <biohazard>
 #include <reapi>
-#define PLUGIN "New Plug-In"
-#define VERSION "1.0"
-#define AUTHOR "author"
+#define PLUGIN "Puan Sistemi[Biohazard>"
+#define VERSION "v1.0"
+#define AUTHOR "seypa"
 
 new g_zombiPoint[33],g_syncHud
 

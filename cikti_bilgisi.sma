@@ -82,4 +82,4 @@ public oyuncu_cikti(const client, bool:crash, const fmt[])
 	
 	log_to_file(szPath, "Isim:%s 	Aciklama: <%s> <%s> <%s> <%s>", szName ,bilgi[3],bilgi[2],bilgi[1],bilgi[0]);
 	
-}
+} 

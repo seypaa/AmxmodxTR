@@ -1,0 +1,63 @@
+#include <amxmodx>
+#include <fakemeta>
+#include <reapi>
+
+#define PLUGIN "Harita Avantaji"
+#define VERSION "Surum 1.00"
+#define AUTHOR "[seypa]"
+
+
+new bool:c4_alindi = false
+new harita[64]
+
+public plugin_init() 
+{
+	register_plugin(PLUGIN, VERSION, AUTHOR)
+	register_forward(FM_Touch,"fwd_touch")
+	RegisterHookChain(RG_CBasePlayer_MakeBomber,"make_bomber_pre",0)
+	RegisterHookChain(RG_CBasePlayer_RoundRespawn,"boelan_sifirla")
+	get_mapname(harita,charsmax(harita))
+}
+
+public boelan_sifirla() c4_alindi = false
+
+public make_bomber_pre()
+{
+	
+	if(equal(harita,"de_aztec") || equal(harita,"de_dust" ))
+	{
+		SetHookChainReturn(ATYPE_BOOL,0) 
+		return HC_SUPERCEDE
+		
+	}
+	return HC_CONTINUE
+	
+}
+
+
+public fwd_touch(ent,id)
+{
+	if (!is_user_alive(id)) return PLUGIN_HANDLED
+	
+	if(equal(harita,"de_aztec") || equal(harita,"de_dust" ))
+	{
+		new g_classname[32]
+		pev(ent, pev_classname, g_classname, 31)
+		
+		
+		
+		if(equali(g_classname, "func_bomb_target") && !c4_alindi)
+		{
+			
+			
+			rg_give_item(id,"weapon_c4")
+			c4_alindi = true
+			
+			
+			
+		}
+	}
+	return PLUGIN_HANDLED
+}
+
+
